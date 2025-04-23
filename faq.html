@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Mentoria Day Trade - Alisson Garcia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f7f7f7, #e6ecf2);
+      color: #0D0D0D;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #1B263B;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #F29C1F;
+      color: #fff;
+    }
+
+    /* FAQ SECTION */
+    .faq-container {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-container h1 {
+      font-size: 2rem;
+      color: #0D0D0D;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+
+    .faq-question {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #1B263B;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+      color: #F29C1F;
+    }
+
+    .faq-answer {
+      display: none;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #5A5A5A;
+    }
+
+    /* ANIMAÇÃO DA RESPOSTA */
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGAÇÃO -->
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+       
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SEÇÃO FAQ -->
+  <section class="faq-container">
+    <h1>Perguntas Frequentes</h1>
+
+    <div class="faq-item">
+      <div class="faq-question">O que é a mentoria de Day Trade com Alisson Garcia?</div>
+      <div class="faq-answer">
+        A mentoria de Day Trade com Alisson Garcia é uma oportunidade de aprender com um trader experiente que já possui mais de 6 anos no mercado financeiro. Através de estratégias comprovadas, você aprenderá a operar com consistência no mercado financeiro.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Qual é o objetivo da mentoria?</div>
+      <div class="faq-answer">
+        O principal objetivo da mentoria é formar traders que possam operar de maneira autônoma e lucrativa, utilizando estratégias de alta performance e obtendo resultados consistentes no mercado financeiro.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Preciso ter experiência prévia em Day Trade para participar?</div>
+      <div class="faq-answer">
+        Não é necessário ter experiência prévia, pois a mentoria é voltada tanto para iniciantes quanto para traders intermediários. Alisson Garcia adapta o conteúdo de acordo com o nível de cada aluno.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Qual o formato da mentoria?</div>
+      <div class="faq-answer">
+        A mentoria é 100% online, com aulas ao vivo, conteúdos gravados e acompanhamento individualizado. Você poderá acessar os materiais a qualquer momento e tirar dúvidas durante o processo.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Como posso me inscrever?</div>
+      <div class="faq-answer">
+        Para se inscrever, basta acessar a página de inscrição do site e seguir as instruções para realizar o pagamento e garantir sua vaga. As inscrições são limitadas, então, fique atento às datas.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">A mentoria oferece suporte após o curso?</div>
+      <div class="faq-answer">
+        Sim! Durante e após a mentoria, você terá suporte contínuo para tirar dúvidas e ajustar suas operações no mercado. Além disso, Alisson Garcia oferece acompanhamento para garantir que você consiga aplicar o aprendido com sucesso.
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

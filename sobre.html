@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre - Alisson Garcia</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      background: linear-gradient(to right, #f7f7f7, #e6ecf2);
+      color: #0D0D0D;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      background-color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #1B263B;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #F29C1F;
+      color: #fff;
+    }
+
+    .language-switch {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .language-switch select {
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .sobre-container {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .foto-alisson {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      background-color: #ccc;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+      margin-bottom: 2rem;
+      background-image: url('img/img.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .texto-animado {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #0D0D0D;
+      white-space: pre-line;
+    }
+
+    .bandeiras {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .bandeiras img {
+      width: 32px;
+      height: 22px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <nav>
+      <ul>
+        <li><a href="index.html#inicio">Início</a></li>
+      </ul>
+    </nav>
+    <div class="language-switch">
+      <label for="lang"></label>
+      <select id="lang">
+        <option value="pt" selected>🇧🇷 PT</option>
+       
+      </select>
+    </div>
+  </header>
+
+  <section class="sobre-container">
+    <div class="foto-alisson"></div>
+    <p id="textoSobre" class="texto-animado"></p>
+    <div class="bandeiras">
+      <img src="https://flagcdn.com/w40/br.png" alt="Brasil">
+      <img src="https://flagcdn.com/w40/us.png" alt="Estados Unidos">
+      <img src="https://flagcdn.com/w40/fr.png" alt="França">
+      <img src="https://flagcdn.com/w40/jp.png" alt="Japão">
+      <img src="https://flagcdn.com/w40/pt.png" alt="Portugal">
+      <img src="https://flagcdn.com/w40/ao.png" alt="Angola">
+      <img src="https://flagcdn.com/w40/eu.png" alt="Europa">
+    </div>
+  </section>
+
+  <script>
+    const textoPt = `Alisson Garcia é trader profissional e mentor, com mais de 6 anos de experiência no mercado financeiro e uma trajetória marcada por resiliência, fé e resultados consistentes.
+
+Depois de investir em conhecimento e triplicar o valor da sua primeira mentoria, decidiu viver exclusivamente de day trade — e nunca mais voltou atrás.
+
+De lá pra cá, Alisson construiu uma carreira sólida no mercado de dólar futuro na Bolsa brasileira, desenvolvendo uma estratégia validada com até 80% de assertividade — baseada em leitura de fluxo, ação do preço, Renko, VWAP e setups de alta performance.
+
+Mas o que realmente diferencia Alisson é o seu propósito: abrir mão da própria operação para pegar na mão de cada aluno.
+
+Hoje, com mais de 650 mentorados formados, sua missão é clara: formar mil traders prontos para viver do mercado com liberdade financeira, geográfica e de tempo.
+
+Sua mentoria já impactou alunos no Brasil, EUA, França, Japão, Portugal, Angola e em diversos países da Europa.`;
+
+    
+    const textElement = document.getElementById('textoSobre');
+    const langSelect = document.getElementById('lang');
+    let idiomaAtual = 'pt';
+
+    function digitarTexto(texto) {
+      textElement.textContent = '';
+      let i = 0;
+      const intervalo = setInterval(() => {
+        if (i < texto.length) {
+          textElement.textContent += texto.charAt(i);
+          i++;
+        } else {
+          clearInterval(intervalo);
+        }
+      }, 15);
+    }
+
+    langSelect.addEventListener('change', () => {
+      const novoIdioma = langSelect.value;
+      if (novoIdioma !== idiomaAtual) {
+        idiomaAtual = novoIdioma;
+        digitarTexto(novoIdioma === 'en' ? textoEn : textoPt);
+      }
+    });
+
+    // texto inicial
+    digitarTexto(textoPt);
+  </script>
+
+</body>
+</html>

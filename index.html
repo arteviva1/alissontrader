@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentoria Day Trade - Alisson Garcia</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f7f7f7, #e6ecf2);
+      color: #0D0D0D;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 1rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #1B263B;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #F29C1F;
+      color: #fff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+      background-color: #ffffff;
+      min-height: 100vh;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        padding: 4rem 10%;
+      }
+
+      .hero-texto {
+        padding-right: 2rem;
+      }
+    }
+
+    .hero-texto {
+      flex: 1;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: #0D0D0D;
+      margin-bottom: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    .subheadline {
+      font-size: 1rem;
+      color: #5A5A5A;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .subheadline {
+        font-size: 1.2rem;
+      }
+    }
+
+    .cta {
+      display: inline-block;
+      background-color: #F29C1F;
+      color: #fff;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s ease-in-out, background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(242, 156, 31, 0.3);
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+      background-color: #e38c12;
+    }
+
+    .hero-video {
+      flex: 1;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .hero-video iframe {
+      width: 100%;
+      height: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      .hero-video iframe {
+        height: 320px;
+      }
+    }
+
+    /* MENSAGEM DE MOTIVAÇÃO */
+    #motivational-message {
+      position: fixed;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #fffbe6, #ffe8cc);
+      border-left: 6px solid #F29C1F;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      padding: 1.2rem 1.5rem 1rem 1.5rem;
+      border-radius: 16px;
+      max-width: 340px;
+      z-index: 1000;
+      display: none;
+      animation: zoomIn 0.6s ease-out forwards;
+    }
+
+    #motivational-message strong {
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #1B263B;
+    }
+
+    #motivational-message p {
+      margin-top: 0.5rem;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(-10px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* BOTÃO FLUTUANTE DO WHATSAPP */
+    #whatsapp-button {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 1000;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #whatsapp-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    #whatsapp-button:active {
+      transform: scale(1.05);
+    }
+
+    #whatsapp-button img {
+      width: 35px;
+      height: 35px;
+    }
+
+    /* CAIXA DE TEXTO FLUTUANTE */
+    #whatsapp-text {
+      position: fixed;
+      bottom: 80px;
+      right: 30px;
+      background-color: #fff;
+      color: #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: none;
+      font-size: 0.9rem;
+      max-width: 200px;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGAÇÃO -->
+<header class="navbar">
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="conteudo.html">Conteúdo</a></li>
+      <li><a href="depoimentos.html">Depoimentos</a></li>
+      <li><a href="resultados.html">Resultados</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="inscricao.html">Inscrição</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- SEÇÃO 1: PRIMEIRA DOBRA -->
+  <section class="hero" id="inicio">
+    <div class="hero-texto">
+      <h1>Você já ouviu falar em Bolsa de Valores, Day Trade ou Renda Extra com um Celular e Internet, mas nunca entendeu como funciona de verdade?</h1>
+      <p class="subheadline">Aqui você vai aprender, do zero, como funciona o mercado financeiro na prática — mesmo que você nunca tenha investido antes.
+
+        Essa é uma mentoria passo a passo com Alisson Garcia, trader com mais de 6 anos de experiência, que já ajudou mais de 650 pessoas comuns a conquistarem liberdade de tempo e dinheiro operando o mercado todos os dias.</p>
+      <a href="#" class="cta" id="motivational-btn">QUERO APRENDER A VIVER DE DAY TRADE</a>
+    </div>
+    <div class="hero-video">
+      <iframe src="https://www.youtube.com/embed/zTTcGPLGjys" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- MENSAGEM DE MOTIVAÇÃO -->
+  <div id="motivational-message">
+    <strong>🎉 Parabéns! Você está prestes a começar sua jornada no Day Trade!</strong>
+    <p>Com dedicação, paciência e a estratégia certa, você pode conquistar a independência financeira. Prepare-se para decolar! 🚀</p>
+  </div>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <button id="whatsapp-button" onclick="window.location.href='https://wa.me/55123456789'">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </button>
+
+  <!-- TEXTO FLUTUANTE DO WHATSAPP -->
+  <div id="whatsapp-text">
+    <p>Qualquer dúvida, entre em contato com nosso suporte!</p>
+  </div>
+
+  <script>
+    document.getElementById('whatsapp-button').addEventListener('mouseenter', function() {
+      document.getElementById('whatsapp-text').style.display = 'block';
+    });
+
+    document.getElementById('whatsapp-button').addEventListener('mouseleave', function() {
+      document.getElementById('whatsapp-text').style.display = 'none';
+    });
+
+    document.getElementById('motivational-btn').addEventListener('click', function() {
+      // Mostrar a mensagem motivacional
+      const message = document.getElementById('motivational-message');
+      message.style.display = 'block';
+
+      // Redirecionar para a página de inscrição após 5 segundos
+      setTimeout(function() {
+        window.location.href = 'inscricao.html';
+      }, 5000);  // 5000 milissegundos = 5 segundos
+    });
+  </script>
+
+</body>
+</html>
